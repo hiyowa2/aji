@@ -124,3 +124,7 @@ html,body{
     "Noto Sans JP",
     sans-serif;
 }
+.menu[open] .dropdown {
+  display: block;
+}
+
