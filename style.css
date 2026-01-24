@@ -107,6 +107,7 @@ html,body{
   background: #222;
   padding: 0.5rem;
   z-index: 10;
+  border-left:0.3rem solid maroon;
 }
 
 .menu.open .dropdown {
@@ -128,6 +129,10 @@ html,body{
   z-index: 10;
 }
 
+.shoyu{
+  display: block;
+  margin-top: 3rem;
+}
 
 html,body{
   background: rgb(245, 215, 141);
