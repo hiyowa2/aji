@@ -82,13 +82,7 @@ html,body{
 }
 
 .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  background: #222;
-  padding: 0.5rem;
-  z-index: 10;
+
 }
 
 .dropdown a {
@@ -104,19 +98,37 @@ html,body{
 }
 
 
-@media (hover: none) {
-  .menu:active .dropdown {
-    display: block;
-  }
-}
-.menu summary {
-  list-style: none;
-  cursor: pointer;
+.dropdown {
+ 
+    position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: #222;
+  padding: 0.5rem;
+  z-index: 10;
 }
 
-.menu[open] .dropdown {
+.menu.open .dropdown {
   display: block;
 }
+
+/* 念のため */
+.menu-title {
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.menu {
+  position: relative;
+  z-index: 5;
+}
+.dropdown {
+  z-index: 10;
+}
+
+
 html,body{
   background: rgb(245, 215, 141);
 
@@ -129,8 +141,3 @@ html,body{
     "Noto Sans JP",
     sans-serif;
 }
-
-.menu[open] .dropdown {
-  display: block;
-}
-
