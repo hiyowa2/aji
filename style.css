@@ -117,7 +117,8 @@ html,body{
 .menu[open] .dropdown {
   display: block;
 }
-
+html,body{
+  background: rgb(245, 215, 141);
 
   font-family:
     "Hiragino Kaku Gothic ProN",
@@ -128,6 +129,7 @@ html,body{
     "Noto Sans JP",
     sans-serif;
 }
+
 .menu[open] .dropdown {
   display: block;
 }
