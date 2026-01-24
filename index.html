@@ -65,17 +65,31 @@ document.getElementById("toTop").addEventListener("click", () => {
 <script>
 document.querySelectorAll(".menu-title").forEach(title => {
   title.addEventListener("click", e => {
-    e.stopPropagation();
-    const menu = title.parentElement;
-    menu.classList.toggle("open");
+    e.stopPropagation(); // 外クリック判定を止める
+
+    const menu = title.closest(".menu");
+
+    // すでに開いてたら「何もしない」
+    if (menu.classList.contains("open")) return;
+
+    // 他のメニューを閉じる（将来用）
+    document.querySelectorAll(".menu.open").forEach(m => {
+      m.classList.remove("open");
+    });
+
+    // 開く
+    menu.classList.add("open");
   });
 });
+
+// 別の場所を押したら閉じる
 document.addEventListener("click", () => {
   document.querySelectorAll(".menu.open").forEach(menu => {
     menu.classList.remove("open");
   });
 });
 </script>
+
 
 
 
