@@ -18,10 +18,13 @@ html,body{
   margin-top: 3rem;
 }
 
+
 .menu{
-  background: rgba(189, 184, 125, 0.63);
+  background: rgba(189, 184
+  , 125, 0.63);
   background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186, 106, 0.712) 50%);
-  display: block;
+  display
+  : block;
   width: auto;
   margin-top: 3rem;
   border:5px inset rgba(136, 118, 69, 0.712);
@@ -42,7 +45,12 @@ html,body{
   max-width: 40rem;
   height: 100rem;
   margin-bottom: 10rem;
-}
+  border-left:0.3rem inset maroon;
+  border-top:0.1rem dashed gray;
+  border-right:0.3rem inset lightblue ;
+  border-bottom: 0.1rem dashed gray;
+
+ }
 
 .border{
   border-top: 0.01rem dashed gray;
@@ -102,7 +110,7 @@ html,body{
  
     position: absolute;
   top: 100%;
-  left: 0;
+  left: -2rem;
   display: none;
   background: #222;
   padding: 0.5rem;
@@ -132,6 +140,25 @@ html,body{
 .shoyu{
   display: block;
   margin-top: 3rem;
+}
+.menu5{
+ font-size: 2rem;
+}
+.left{
+  text-align: left;
+
+
+}
+.left-sub{
+  display: block;
+  margin-left:5rem;
+  border-left:0.2rem solid gray ;
+}
+
+.white{
+  color:#222;
+
+  
 }
 html,body{
   background: rgb(245, 215, 141);
