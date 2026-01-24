@@ -178,6 +178,11 @@ html,body{
 ::-webkit-scrollbar-track {
   background: whitesmoke;
 }
+::selection {
+  background: maroon;
+ 
+}
+
 
 /*waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 
