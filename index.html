@@ -13,14 +13,26 @@ content="width=device-width, initial-scale=1.0">
 
 <title>味の万雷</title>
 <div class="center">
-  <header>
-      <div class="head1">
-        <h2><b>味の万雷</b></h2>
+ <header class="site-header">
+  <h1 class="logo">味の万雷</h1>
+
+  <nav class="nav">
+    <div class="menu">
+      <span class="menu-title">ABOUT</span>
+      <div class="dropdown">
+        <a href="https://tabelog.com/hokkaido/A0101/A010204/1000464/">食べログ</a>
+        <a href="https://www.google.com/maps?num=10&newwindow=1&sca_esv=a2569ed45bf1c654&rlz=1C1FQRR_jaJP934JP934&output=search&q=%E5%91%B3%E3%81%AE%E4%B8%87%E9%9B%B7&source=lnms&fbs=ADc_l-Y39qeryS7Jwwaqw87B7rGLhkFopZAefXrEt5SuB2bZHQmWfYvVU4IONeWFIPzGUW9NrvS2e_JhsUfotz7GFxXc7AxTr1CE1FknJV9CWRFdBUDdFLLFQK83-2LH2zFGbpApZ1ISg_SIOCjNETg7cJYYFubaiQNzNFsYCa_PwRDoQ__gLcch58g0bhbc6favtEFVM-x2ZDTA3Z74PTtZE6Ib84cubbYbfIRsd9-bliGBQcbk0Kg&entry=mc&ved=1t:200715&ictx=111">google　map</a>
       </div>
-  </header>
+    </div>
+  </nav>
+</header>
+
+<header>
+
   <div class="創業年数">
     テキストをここに
   </div>
+  <div class="menu-sq">
   <div class="menu">
     <h3>
       <span class="menu1">
@@ -31,6 +43,22 @@ content="width=device-width, initial-scale=1.0">
     </span>
     </h3> 
   </div>
+  <div class="border">
+    <div class="border1-1">
+    sd
+    </div>
+
+  </div>
+
+  <button id="toTop">▲</button>
+  <script>
+document.getElementById("toTop").addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
 
   </body>
 </html>
