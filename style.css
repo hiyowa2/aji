@@ -1,65 +1,31 @@
 .center{
   text-align: center;
-  color: white;
-
 }
-
-.back1{
-  background:rgb(120, 205, 255,0.5)20%;
+.head1{
+  background: #c2c47e;
+background: linear-gradient(59deg, rgba(194, 196, 126, 1) 5%, rgba(245, 239, 159, 1) 100%);;
   display: block;
-  height: 3rem;
-  border:0.25rem inset rgba(85, 0, 0, 0.527);
-  
+  border:5px inset rgb(161, 161, 127)
 }
-.let1{
-  display: inline-block;
-  transform:translate(0rem,0.75rem) ;
+html,body{
+  background: rgb(255, 242, 208);
 }
 
-.back2{
-  display: inline-block;
-  transform: translate(0rem,3rem);
-  background: rgb(54, 0, 0);
-  width: 80%;
-  height: 100rem;
-  max-width: 40rem;
+.創業年数{
+  display: block;
+  margin-top: 3rem;
+}
+.menu{
+  background: RGBA(189, 184, 125, 0.63);
+background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186, 106, 0.712) 50%);
   
+  display: block;
+  width: auto;
+  margin-top: 7rem;
+  border:5px inset rgba(136, 118, 69, 0.712)
 }
-html, body {
-  background: black;
-  margin: 0;
-  height: 100%;
-}
-.let1-1{
-  color: black;
-  display: inline-block;
-  
- 
-}
-.let2{
+.menu1-1{
   display: inline-block;
   position: relative;
-  top:3rem
-}
-body {
-  font-family:
-    "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    "Meiryo",
-    sans-serif;
-}
-
-.back2{
-  display: inline-block;
-  transform: translate(0rem,3rem);
-  background: rgb(54, 0, 0);
-  width: 80%;
-  height: 100rem;
-  max-width: 40rem;
-  
-}
-::selection {
-  background: darkred;
-  color:white;
+  left:1rem;
 }
