@@ -9,6 +9,12 @@ background: linear-gradient(59deg, rgba(194, 196, 126, 1) 5%, rgba(245, 239, 159
 }
 html,body{
   background: rgb(255, 242, 208);
+    font-family:
+    "Noto Sans JP",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
 }
 
 .創業年数{
