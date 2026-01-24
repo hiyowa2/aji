@@ -20,12 +20,15 @@ content="width=device-width, initial-scale=1.0">
     <div class="menu">
       <span class="menu-title">ABOUT</span>
       <div class="dropdown">
-        <a href="https://tabelog.com/hokkaido/A0101/A010204/1000464/"target="_blank">食べログ</a>
-        <a href="https://www.google.com/maps?num=10&newwindow=1&sca_esv=a2569ed45bf1c654&rlz=1C1FQRR_jaJP934JP934&output=search&q=%E5%91%B3%E3%81%AE%E4%B8%87%E9%9B%B7&source=lnms&fbs=ADc_l-Y39qeryS7Jwwaqw87B7rGLhkFopZAefXrEt5SuB2bZHQmWfYvVU4IONeWFIPzGUW9NrvS2e_JhsUfotz7GFxXc7AxTr1CE1FknJV9CWRFdBUDdFLLFQK83-2LH2zFGbpApZ1ISg_SIOCjNETg7cJYYFubaiQNzNFsYCa_PwRDoQ__gLcch58g0bhbc6favtEFVM-x2ZDTA3Z74PTtZE6Ib84cubbYbfIRsd9-bliGBQcbk0Kg&entry=mc&ved=1t:200715&ictx=111"target="_blank">google　map</a>
+        <a href="https://tabelog.com/hokkaido/A0101/A010204/1000464/">食べログ</a>
+        <a href="https://www.google.com/maps?num=10&newwindow=1&sca_esv=a2569ed45bf1c654&rlz=1C1FQRR_jaJP934JP934&output=search&q=%E5%91%B3%E3%81%AE%E4%B8%87%E9%9B%B7&source=lnms&fbs=ADc_l-Y39qeryS7Jwwaqw87B7rGLhkFopZAefXrEt5SuB2bZHQmWfYvVU4IONeWFIPzGUW9NrvS2e_JhsUfotz7GFxXc7AxTr1CE1FknJV9CWRFdBUDdFLLFQK83-2LH2zFGbpApZ1ISg_SIOCjNETg7cJYYFubaiQNzNFsYCa_PwRDoQ__gLcch58g0bhbc6favtEFVM-x2ZDTA3Z74PTtZE6Ib84cubbYbfIRsd9-bliGBQcbk0Kg&entry=mc&ved=1t:200715&ictx=111">google　map</a>
       </div>
     </div>
+
+
   </nav>
 </header>
+
 
 <header>
 
@@ -59,6 +62,22 @@ document.getElementById("toTop").addEventListener("click", () => {
   });
 });
 </script>
+<script>
+document.querySelectorAll(".menu-title").forEach(title => {
+  title.addEventListener("click", e => {
+    e.stopPropagation();
+    const menu = title.parentElement;
+    menu.classList.toggle("open");
+  });
+});
+document.addEventListener("click", () => {
+  document.querySelectorAll(".menu.open").forEach(menu => {
+    menu.classList.remove("open");
+  });
+});
+</script>
+
+
 
   </body>
 </html>
