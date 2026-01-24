@@ -106,3 +106,15 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
 .menu:hover .dropdown {
   display: block;
 }
+html,body{
+  background: rgb(245, 215, 141);
+
+  font-family:
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "YuGothic",
+    "Meiryo",
+    "Noto Sans JP",
+    sans-serif;
+}
