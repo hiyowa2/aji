@@ -1,12 +1,14 @@
 .center{
   text-align: center;
 }
+
 .head1{
   background: #c2c47e;
-background: linear-gradient(59deg, rgba(194, 196, 126, 1) 5%, rgba(245, 239, 159, 1) 100%);;
+  background: linear-gradient(59deg, rgba(194, 196, 126, 1) 5%, rgba(245, 239, 159, 1) 100%);
   display: block;
-  border:5px inset rgb(161, 161, 127)
+  border:5px inset rgb(161, 161, 127);
 }
+
 html,body{
   background: rgb(245, 215, 141);
 }
@@ -15,20 +17,23 @@ html,body{
   display: block;
   margin-top: 3rem;
 }
+
 .menu{
-  background: RGBA(189, 184, 125, 0.63);
-background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186, 106, 0.712) 50%);
-  
+  background: rgba(189, 184, 125, 0.63);
+  background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186, 106, 0.712) 50%);
   display: block;
   width: auto;
   margin-top: 3rem;
-  border:5px inset rgba(136, 118, 69, 0.712)
+  border:5px inset rgba(136, 118, 69, 0.712);
+  position: relative; 
 }
+
 .menu1-1{
   display: inline-block;
   position: relative;
   left:1rem;
 }
+
 .menu-sq{
   background: white;
   display: block;
@@ -37,26 +42,25 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
   max-width: 40rem;
   height: 100rem;
   margin-bottom: 10rem;
-
 }
+
 .border{
   border-top: 0.01rem dashed gray;
 }
+
 .border1-1{
   display: block;
   margin-bottom: 3rem;
 }
+
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 1rem 2rem;
   background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186, 106, 0.712) 50%);
-  
   color: black;
   border:0.5rem outset rgba(255, 186, 106, 0.712);
-  
 }
 
 .nav a {
@@ -64,7 +68,6 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
   color: black;
   text-decoration: none;
 }
-
 
 #toTop {
   position: fixed;
@@ -74,14 +77,6 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
 
 
 
-
-
-
-
-.menu {
-  position: relative;
-}
-
 .menu-title {
   cursor: pointer;
 }
@@ -90,10 +85,10 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
   position: absolute;
   top: 100%;
   left: 0;
-
   display: none;
   background: #222;
   padding: 0.5rem;
+  z-index: 10;
 }
 
 .dropdown a {
@@ -103,9 +98,20 @@ background: linear-gradient(95deg, rgba(214, 206, 88, 0.514) 50%, rgba(255, 186,
   padding: 0.3rem 0.6rem;
 }
 
-.menu:hover .dropdown {
-  display: block;
+
+@media (hover: hover) {
+  .menu:hover .dropdown {
+    display: block;
+  }
 }
+
+
+@media (hover: none) {
+  .menu:active .dropdown {
+    display: block;
+  }
+}
+
 html,body{
   background: rgb(245, 215, 141);
 
