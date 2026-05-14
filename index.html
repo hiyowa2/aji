@@ -22,21 +22,32 @@ body{
     padding:10px;
     box-sizing:border-box;
 
-    overflow-x:hidden;
+    overflow:hidden;
 }
 
 .container{
     display:flex;
     align-items:flex-end;
     justify-content:center;
-    gap:3vw;
 
-    width:100%;
+    gap:12px;
+
+    width:fit-content;
+    max-width:100%;
+
+    transform:scale(0.8);
+    transform-origin:center;
 }
 
 .left{
     text-align:center;
-    flex-shrink:1;
+}
+
+.top-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
 }
 
 .box{
@@ -55,8 +66,16 @@ body{
     box-sizing:border-box;
 }
 
+.small-result{
+    min-width:80px;
+
+    font-size:min(5vw,32px);
+
+    text-align:left;
+}
+
 .line{
-    width:min(48vw,360px);
+    width:min(60vw,450px);
     height:2px;
     background:black;
 
@@ -81,8 +100,6 @@ body{
 .equal{
     font-size:min(8vw,60px);
     padding-bottom:25px;
-
-    flex-shrink:0;
 }
 
 .result-area{
@@ -91,8 +108,6 @@ body{
     gap:6px;
 
     padding-bottom:10px;
-
-    flex-shrink:1;
 }
 
 .result-box{
@@ -131,14 +146,9 @@ body{
     padding-bottom:8px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
-    -webkit-appearance:none;
-    margin:0;
-}
-
-input[type=number]{
-    appearance:textfield;
+input{
+    border:none;
+    outline:none;
 }
 
 </style>
@@ -149,12 +159,25 @@ input[type=number]{
 
     <div class="left">
 
-        <input
-            type="number"
-            id="value"
-            class="box"
-            oninput="calcFromA()"
-        >
+        <div class="top-row">
+
+            <input
+                type="text"
+                id="value"
+                class="box"
+                oninput="calcFromA()"
+            >
+
+            <div>=</div>
+
+            <div
+                class="small-result"
+                id="aResult"
+            >
+                0
+            </div>
+
+        </div>
 
         <div class="line"></div>
 
@@ -175,7 +198,7 @@ input[type=number]{
         <div class="result-box">
 
             <input
-                type="number"
+                type="text"
                 id="percentInput"
                 class="result-input"
                 oninput="calcFromC()"
@@ -198,6 +221,7 @@ function parseExpression(str){
     try{
 
         str = str.replace(/\^/g, "**");
+        str = str.replace(/×/g, "*");
 
         return Function(
             "return " + str
@@ -211,10 +235,15 @@ function parseExpression(str){
 
 function getMaxValue(){
 
-    const value =
-        document.getElementById("maxValue").value;
+    return parseExpression(
+        document.getElementById("maxValue").value
+    ) || 1;
+}
 
-    return parseExpression(value) || 1;
+function updateAResult(a){
+
+    document.getElementById("aResult").textContent =
+        Number(a.toFixed(5));
 }
 
 function calcFromA(){
@@ -222,11 +251,13 @@ function calcFromA(){
     if(updating) return;
     updating = true;
 
-    const a = Number(
+    const a = parseExpression(
         document.getElementById("value").value
     );
 
     const max = getMaxValue();
+
+    updateAResult(a);
 
     const c = (a / max) * 100;
 
@@ -241,13 +272,15 @@ function calcFromC(){
     if(updating) return;
     updating = true;
 
-    const c = Number(
+    const c = parseExpression(
         document.getElementById("percentInput").value
     );
 
     const max = getMaxValue();
 
     const a = (c / 100) * max;
+
+    updateAResult(a);
 
     document.getElementById("value").value =
         Number(a.toFixed(5));
@@ -257,14 +290,7 @@ function calcFromC(){
 
 function recalculate(){
 
-    if(
-        document.activeElement.id === "value"
-    ){
-        calcFromA();
-    }
-    else{
-        calcFromC();
-    }
+    calcFromA();
 }
 
 </script>
