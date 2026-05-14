@@ -22,32 +22,21 @@ body{
     padding:10px;
     box-sizing:border-box;
 
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .container{
     display:flex;
     align-items:flex-end;
     justify-content:center;
+    gap:3vw;
 
-    gap:12px;
-
-    width:fit-content;
-    max-width:100%;
-
-    transform:scale(0.8);
-    transform-origin:center;
+    width:100%;
 }
 
 .left{
     text-align:center;
-}
-
-.top-row{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
+    flex-shrink:1;
 }
 
 .box{
@@ -66,16 +55,8 @@ body{
     box-sizing:border-box;
 }
 
-.small-result{
-    min-width:80px;
-
-    font-size:min(5vw,32px);
-
-    text-align:left;
-}
-
 .line{
-    width:min(60vw,450px);
+    width:min(48vw,360px);
     height:2px;
     background:black;
 
@@ -100,6 +81,8 @@ body{
 .equal{
     font-size:min(8vw,60px);
     padding-bottom:25px;
+
+    flex-shrink:0;
 }
 
 .result-area{
@@ -108,6 +91,8 @@ body{
     gap:6px;
 
     padding-bottom:10px;
+
+    flex-shrink:1;
 }
 
 .result-box{
@@ -146,9 +131,10 @@ body{
     padding-bottom:8px;
 }
 
-input{
-    border:none;
-    outline:none;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+    margin:0;
 }
 
 </style>
@@ -159,25 +145,12 @@ input{
 
     <div class="left">
 
-        <div class="top-row">
-
-            <input
-                type="text"
-                id="value"
-                class="box"
-                oninput="calcFromA()"
-            >
-
-            <div>=</div>
-
-            <div
-                class="small-result"
-                id="aResult"
-            >
-                0
-            </div>
-
-        </div>
+        <input
+            type="text"
+            id="value"
+            class="box"
+            oninput="calcFromA()"
+        >
 
         <div class="line"></div>
 
@@ -235,15 +208,10 @@ function parseExpression(str){
 
 function getMaxValue(){
 
-    return parseExpression(
-        document.getElementById("maxValue").value
-    ) || 1;
-}
+    const value =
+        document.getElementById("maxValue").value;
 
-function updateAResult(a){
-
-    document.getElementById("aResult").textContent =
-        Number(a.toFixed(5));
+    return parseExpression(value) || 1;
 }
 
 function calcFromA(){
@@ -256,8 +224,6 @@ function calcFromA(){
     );
 
     const max = getMaxValue();
-
-    updateAResult(a);
 
     const c = (a / max) * 100;
 
@@ -280,8 +246,6 @@ function calcFromC(){
 
     const a = (c / 100) * max;
 
-    updateAResult(a);
-
     document.getElementById("value").value =
         Number(a.toFixed(5));
 
@@ -290,7 +254,14 @@ function calcFromC(){
 
 function recalculate(){
 
-    calcFromA();
+    if(
+        document.activeElement.id === "value"
+    ){
+        calcFromA();
+    }
+    else{
+        calcFromC();
+    }
 }
 
 </script>
