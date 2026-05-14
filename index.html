@@ -63,8 +63,18 @@ body{
     margin-top:10px;
 }
 
-.bottom{
+.bottom-input{
+    width:min(30vw,220px);
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    text-align:center;
+
     font-size:min(5vw,34px);
+
     margin-top:10px;
 }
 
@@ -143,16 +153,18 @@ input[type=number]{
             type="number"
             id="value"
             class="box"
-            min="1"
-            max="800000"
             oninput="calcFromA()"
         >
 
         <div class="line"></div>
 
-        <div class="bottom">
-            800000
-        </div>
+        <input
+            type="text"
+            id="maxValue"
+            class="bottom-input"
+            value="800000"
+            oninput="recalculate()"
+        >
 
     </div>
 
@@ -181,6 +193,30 @@ input[type=number]{
 
 let updating = false;
 
+function parseExpression(str){
+
+    try{
+
+        str = str.replace(/\^/g, "**");
+
+        return Function(
+            "return " + str
+        )();
+
+    }catch{
+
+        return NaN;
+    }
+}
+
+function getMaxValue(){
+
+    const value =
+        document.getElementById("maxValue").value;
+
+    return parseExpression(value) || 1;
+}
+
 function calcFromA(){
 
     if(updating) return;
@@ -190,7 +226,9 @@ function calcFromA(){
         document.getElementById("value").value
     );
 
-    const c = (a / 800000) * 100;
+    const max = getMaxValue();
+
+    const c = (a / max) * 100;
 
     document.getElementById("percentInput").value =
         Number(c.toFixed(5));
@@ -207,12 +245,26 @@ function calcFromC(){
         document.getElementById("percentInput").value
     );
 
-    const a = (c / 100) * 800000;
+    const max = getMaxValue();
+
+    const a = (c / 100) * max;
 
     document.getElementById("value").value =
         Number(a.toFixed(5));
 
     updating = false;
+}
+
+function recalculate(){
+
+    if(
+        document.activeElement.id === "value"
+    ){
+        calcFromA();
+    }
+    else{
+        calcFromC();
+    }
 }
 
 </script>
