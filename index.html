@@ -1,120 +1,221 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    
-<meta name="description" content="味の万雷">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>割合計算</title>
 
-<title>味の万雷</title>
-<div class="center">
- <header class="site-header">
-  <h1 class="logo">味の万雷</h1>
+<style>
 
-  <nav class="nav">
-    <div class="menu">
-      <span class="menu-title">≡</span>
-      <div class="dropdown">
-        <a href="https://tabelog.com/hokkaido/A0101/A010204/1000464/"target="_blank">食べログ</a>
-        <a href="https://www.google.com/maps?num=10&newwindow=1&sca_esv=a2569ed45bf1c654&rlz=1C1FQRR_jaJP934JP934&output=search&q=%E5%91%B3%E3%81%AE%E4%B8%87%E9%9B%B7&source=lnms&fbs=ADc_l-Y39qeryS7Jwwaqw87B7rGLhkFopZAefXrEt5SuB2bZHQmWfYvVU4IONeWFIPzGUW9NrvS2e_JhsUfotz7GFxXc7AxTr1CE1FknJV9CWRFdBUDdFLLFQK83-2LH2zFGbpApZ1ISg_SIOCjNETg7cJYYFubaiQNzNFsYCa_PwRDoQ__gLcch58g0bhbc6favtEFVM-x2ZDTA3Z74PTtZE6Ib84cubbYbfIRsd9-bliGBQcbk0Kg&entry=mc&ved=1t:200715&ictx=111"target="_blank">googlemap</a>
-      </div>
-    </div>
+body{
+    margin:0;
+    min-height:100vh;
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-  </nav>
-</header>
+    background:#f5f5f5;
+    font-family:sans-serif;
 
+    padding:10px;
+    box-sizing:border-box;
 
-<header>
+    overflow-x:hidden;
+}
 
-   <br> <br><div class="創業年数">
-    <div class="white">創業○○年の老舗ラーメン屋</div>
-   
-    </div>
-   <br>
-    <br>
-     <br>
-  <div class="menu-sq">
-  <div class="men4">
-    <h3>
-      <span class="menu1">
-        <span class="menu5">
-        <ruby>メニュー<rt>MENU</rt></ruby>
-        </span>
-      </span>
-    </span>
-    </h3> 
-  </div>
-  <div class="border">
-    <div class="border1-1">
+.container{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:3vw;
+
+    width:100%;
+}
+
+.left{
+    text-align:center;
+    flex-shrink:1;
+}
+
+.box{
+    width:min(42vw,320px);
+    height:min(14vw,90px);
+
+    min-height:50px;
+
+    border:2px solid black;
+    border-radius:8px;
+
+    font-size:min(6vw,40px);
+    text-align:center;
+
+    background:white;
+    box-sizing:border-box;
+}
+
+.line{
+    width:min(48vw,360px);
+    height:2px;
+    background:black;
+
+    margin-top:10px;
+}
+
+.bottom{
+    font-size:min(5vw,34px);
+    margin-top:10px;
+}
+
+.equal{
+    font-size:min(8vw,60px);
+    padding-bottom:25px;
+
+    flex-shrink:0;
+}
+
+.result-area{
+    display:flex;
+    align-items:flex-end;
+    gap:6px;
+
+    padding-bottom:10px;
+
+    flex-shrink:1;
+}
+
+.result-box{
+    width:min(28vw,240px);
+    height:min(14vw,90px);
+
+    min-height:50px;
+
+    border:2px solid black;
+    border-radius:8px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:white;
+    box-sizing:border-box;
+}
+
+.result-input{
+    width:100%;
+    height:100%;
+
+    border:none;
+    outline:none;
+
+    text-align:center;
+
+    font-size:min(5vw,34px);
+
+    background:transparent;
+}
+
+.percent{
+    font-size:min(5vw,34px);
+    padding-bottom:8px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+input[type=number]{
+    appearance:textfield;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
     <div class="left">
-      <div class="left-sub">
-    <span class="shoyu">醤油ラーメン:うまい<br>(img-醤油ラーメン)<br>[説明]
-      <p>味噌ラーメン:うまいらしい<br>(img-味噌ラーメン)<br>[説明]</p>
-      <br>
-      <p>こんな感じに書いてく</p>
-    </span>
-    </div>
-    </div>
-    </span>
+
+        <input
+            type="number"
+            id="value"
+            class="box"
+            min="1"
+            max="800000"
+            oninput="calcFromA()"
+        >
+
+        <div class="line"></div>
+
+        <div class="bottom">
+            800000
+        </div>
+
     </div>
 
-  </div>
+    <div class="equal">=</div>
 
-  <button id="toTop">▲</button>
-  <script>
-document.getElementById("toTop").addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-</script>
+    <div class="result-area">
+
+        <div class="result-box">
+
+            <input
+                type="number"
+                id="percentInput"
+                class="result-input"
+                oninput="calcFromC()"
+            >
+
+        </div>
+
+        <div class="percent">%</div>
+
+    </div>
+
+</div>
+
 <script>
-document.querySelectorAll(".menu-title").forEach(title => {
-  title.addEventListener("click", e => {
-    e.stopPropagation(); // 外クリック判定を止める
 
-    const menu = title.closest(".menu");
+let updating = false;
 
-    // すでに開いてたら「何もしない」
-    if (menu.classList.contains("open")) return;
+function calcFromA(){
 
-    // 他のメニューを閉じる（将来用）
-    document.querySelectorAll(".menu.open").forEach(m => {
-      m.classList.remove("open");
-    });
+    if(updating) return;
+    updating = true;
 
-    // 開く
-    menu.classList.add("open");
-  });
-});
+    const a = Number(
+        document.getElementById("value").value
+    );
 
-// 別の場所を押したら閉じる
-document.addEventListener("click", () => {
-  document.querySelectorAll(".menu.open").forEach(menu => {
-    menu.classList.remove("open");
-  });
-});
+    const c = (a / 800000) * 100;
+
+    document.getElementById("percentInput").value =
+        Number(c.toFixed(5));
+
+    updating = false;
+}
+
+function calcFromC(){
+
+    if(updating) return;
+    updating = true;
+
+    const c = Number(
+        document.getElementById("percentInput").value
+    );
+
+    const a = (c / 100) * 800000;
+
+    document.getElementById("value").value =
+        Number(a.toFixed(5));
+
+    updating = false;
+}
+
 </script>
 
-
-
-
-    
-
-
-
-  </body>
+</body>
 </html>
-
-
-
-
-
-
